@@ -73,7 +73,7 @@ router.put('/:id', async (req, res) => {
 router.delete('/:id', async (req, res) => {
     try {
         const personId = req.params.id;
-        
+
 
         const data = await Person.findByIdAndDelete(personId);
 
@@ -82,7 +82,7 @@ router.delete('/:id', async (req, res) => {
         }
 
         console.log('Data deleted');
-        res.status(200).json({massage:'person deleted succesfully'});
+        res.status(200).json({ massage: 'person deleted succesfully' });
     } catch (error) {
         console.error(error);
         res.status(500).json({ error: 'Internal server error' });
@@ -90,28 +90,5 @@ router.delete('/:id', async (req, res) => {
 });
 
 
-// router.put(':id', async (req, res) => {
-//     try {
-//         const personId = req.params.id;
-//         const updatedData = req.body;
-
-
-//         const data = await Person.findByIdAndUpdate(personId,updatedData,{
-//             new:true,
-//             runValidators:true,
-//         });
-
-//         if (!personId) {
-//             return res.status(404).json({ error: 'Person not found' });
-//             }
-//         console.log('data updated')
-//         res.status(200).json(data);
-
-
-//     } catch (error) {
-//         console.log(error)
-//         res.status(500).json({ error: 'internnal server error' });
-//     }
-// })
 
 module.exports = router;
